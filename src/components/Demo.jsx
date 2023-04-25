@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { copy, linkIcon, loader, tick } from '../assets';
 import { useLazyGetSummaryQuery } from '../services/article';
 
+//Regex to test invalid API Key.
+const regex = /Invalid API key/i;
+
 const Demo = () => {
     const [article, setArticle] = useState({
         url: '',
@@ -110,9 +113,17 @@ const Demo = () => {
                 ) : error ? (
                     <p className='font-inter font-bold text-black text-center'>
                         Well, That wasn't supposed to happen... <br />
-                        <span className='font-satoshi font-normal text-gray-700'>
-                            {error?.data?.error}
-                        </span>
+                        {regex.test(error?.data?.message) ? (
+                            <span className='font-satoshi font-normal text-gray-700'>
+                                Sorry, but you are not allowed to use this Service. <br />Contact the Admin for access.
+                            </span>
+
+                        ) : (
+                            <span className='font-satoshi font-normal text-gray-700'>
+                                {error?.data?.error}
+                            </span>
+
+                        )}
                     </p>
                 ) : (
                     article.summary && (
