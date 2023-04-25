@@ -1,5 +1,7 @@
 # PROJECT ARTICLE_SUMMARIZER
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83535a93-fcd6-4b02-a09e-986bdc3d42aa/deploy-status)](https://app.netlify.com/sites/gpt-article-summarizer/deploys)
+
 ![summarizer_on_laptop](public/assets/sumz_laptop.png)
 
 <!-- ![summarizer_on_iphoneSE](public/assets/sumz_phone_SE.png) -->
